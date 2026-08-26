@@ -1,0 +1,2298 @@
+<sdf version='1.7'>
+  <world name='v2x_city_world'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>21.4606 0.535428 20.0349 0 0.786741 3.13395</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <model name='main_horizontal_road'>
+      <static>1</static>
+      <pose>0 0 0.01 0 -0 0</pose>
+      <link name='link'>
+        <visual name='road'>
+          <geometry>
+            <box>
+              <size>30 5 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.025 0.025 0.025 1</ambient>
+            <diffuse>0.025 0.025 0.025 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='main_vertical_road'>
+      <static>1</static>
+      <pose>0 0 0.012 0 -0 0</pose>
+      <link name='link'>
+        <visual name='road'>
+          <geometry>
+            <box>
+              <size>5 24 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.03 0.03 0.03 1</ambient>
+            <diffuse>0.03 0.03 0.03 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='office_access_road'>
+      <static>1</static>
+      <pose>6.2 -4 0.014 0 -0 0</pose>
+      <link name='link'>
+        <visual name='road'>
+          <geometry>
+            <box>
+              <size>8 2.4 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.035 0.035 0.035 1</ambient>
+            <diffuse>0.035 0.035 0.035 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='hospital_access_road'>
+      <static>1</static>
+      <pose>6.2 4 0.014 0 -0 0</pose>
+      <link name='link'>
+        <visual name='road'>
+          <geometry>
+            <box>
+              <size>8 2.4 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.035 0.035 0.035 1</ambient>
+            <diffuse>0.035 0.035 0.035 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='sidewalk_north'>
+      <static>1</static>
+      <pose>0 3 0.035 0 -0 0</pose>
+      <link name='link'>
+        <visual name='sidewalk'>
+          <geometry>
+            <box>
+              <size>30 0.7 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.35 0.35 0.35 1</ambient>
+            <diffuse>0.35 0.35 0.35 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='sidewalk_south'>
+      <static>1</static>
+      <pose>0 -3 0.035 0 -0 0</pose>
+      <link name='link'>
+        <visual name='sidewalk'>
+          <geometry>
+            <box>
+              <size>30 0.7 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.35 0.35 0.35 1</ambient>
+            <diffuse>0.35 0.35 0.35 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='sidewalk_east'>
+      <static>1</static>
+      <pose>3 0 0.036 0 -0 0</pose>
+      <link name='link'>
+        <visual name='sidewalk'>
+          <geometry>
+            <box>
+              <size>0.7 24 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.32 0.32 0.32 1</ambient>
+            <diffuse>0.32 0.32 0.32 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='sidewalk_west'>
+      <static>1</static>
+      <pose>-3 0 0.036 0 -0 0</pose>
+      <link name='link'>
+        <visual name='sidewalk'>
+          <geometry>
+            <box>
+              <size>0.7 24 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.32 0.32 0.32 1</ambient>
+            <diffuse>0.32 0.32 0.32 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='horizontal_lane_marking'>
+      <static>1</static>
+      <pose>0 0 0.055 0 -0 0</pose>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>28 0.06 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='vertical_lane_marking'>
+      <static>1</static>
+      <pose>0 0 0.056 0 -0 0</pose>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.06 22 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='main_stop_line'>
+      <static>1</static>
+      <pose>-2.2 0 0.07 0 -0 0</pose>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.12 4.6 0.025</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='crosswalk_south'>
+      <static>1</static>
+      <pose>-1.15 -2 0.075 0 -0 0</pose>
+      <link name='link'>
+        <visual name='stripe1'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.2 0.12 0.025</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <visual name='stripe2'>
+          <pose>0 0.35 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.2 0.12 0.025</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <visual name='stripe3'>
+          <pose>0 0.7 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.2 0.12 0.025</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <visual name='stripe4'>
+          <pose>0 1.05 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.2 0.12 0.025</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='hospital_complex'>
+      <static>1</static>
+      <pose>8.4 6.2 1.25 0 -0 0</pose>
+      <link name='link'>
+        <visual name='main'>
+          <geometry>
+            <box>
+              <size>5.5 3.2 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.82 0.86 0.9 1</ambient>
+            <diffuse>0.82 0.86 0.9 1</diffuse>
+          </material>
+        </visual>
+        <visual name='entrance'>
+          <pose>-1.2 -1.65 -0.45 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.3 0.25 0.7</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.15 0.35 0.85 1</ambient>
+            <diffuse>0.15 0.35 0.85 1</diffuse>
+          </material>
+        </visual>
+        <visual name='cross_vertical'>
+          <pose>0 -1.65 0.65 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.3 0.08 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='cross_horizontal'>
+          <pose>0 -1.7 0.65 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.1 0.08 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='residential_block'>
+      <static>1</static>
+      <pose>-8.3 6.2 1 0 -0 0</pose>
+      <link name='link'>
+        <visual name='main'>
+          <geometry>
+            <box>
+              <size>4.5 3 2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.45 0.3 0.25 1</ambient>
+            <diffuse>0.45 0.3 0.25 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='commercial_block'>
+      <static>1</static>
+      <pose>-8.3 -6.2 1 0 -0 0</pose>
+      <link name='link'>
+        <visual name='main'>
+          <geometry>
+            <box>
+              <size>4.5 3 2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2 0.42 0.48 1</ambient>
+            <diffuse>0.2 0.42 0.48 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='office_parking_zone_O1_O2'>
+      <static>1</static>
+      <pose>5.8 -4 0.07 0 -0 0</pose>
+      <link name='link'>
+        <visual name='base'>
+          <geometry>
+            <box>
+              <size>4.2 2 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.01 0.01 0.01 1</ambient>
+            <diffuse>0.01 0.01 0.01 1</diffuse>
+          </material>
+        </visual>
+        <visual name='slot_o1'>
+          <pose>-0.9 0 0.04 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.9 1.4 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.55 0 1</ambient>
+            <diffuse>0 0.55 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='slot_o2'>
+          <pose>0.9 0 0.04 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.9 1.4 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.75 0 1</ambient>
+            <diffuse>0 0.75 0 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='hospital_bay_H1'>
+      <static>1</static>
+      <pose>5.8 4 0.07 0 -0 0</pose>
+      <link name='link'>
+        <visual name='base'>
+          <geometry>
+            <box>
+              <size>1.4 1.6 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.85 0.05 0.05 1</ambient>
+            <diffuse>0.85 0.05 0.05 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='commercial_parking_lot'>
+      <static>1</static>
+      <pose>-6 -4 0.07 0 -0 0</pose>
+      <link name='link'>
+        <visual name='base'>
+          <geometry>
+            <box>
+              <size>3.8 2 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.01 0.01 0.01 1</ambient>
+            <diffuse>0.01 0.01 0.01 1</diffuse>
+          </material>
+        </visual>
+        <visual name='slot1'>
+          <pose>-0.9 0 0.04 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.8 1.4 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.25 0.8 1</ambient>
+            <diffuse>0 0.25 0.8 1</diffuse>
+          </material>
+        </visual>
+        <visual name='slot2'>
+          <pose>0 0 0.04 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.8 1.4 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.45 0.8 1</ambient>
+            <diffuse>0 0.45 0.8 1</diffuse>
+          </material>
+        </visual>
+        <visual name='slot3'>
+          <pose>0.9 0 0.04 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.8 1.4 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.65 0.8 1</ambient>
+            <diffuse>0 0.65 0.8 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='traffic_light_south'>
+      <static>1</static>
+      <pose>-2 -2.7 0 0 -0 0</pose>
+      <link name='link'>
+        <visual name='pole'>
+          <pose>0 0 0.8 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.04</radius>
+              <length>1.6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <visual name='box'>
+          <pose>0 0 1.6 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.35 0.22 0.75</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.02 0.02 0.02 1</ambient>
+            <diffuse>0.02 0.02 0.02 1</diffuse>
+          </material>
+        </visual>
+        <visual name='red'>
+          <pose>0 -0.13 1.82 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='yellow'>
+          <pose>0 -0.13 1.6 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0.8 0 1</ambient>
+            <diffuse>1 0.8 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='green'>
+          <pose>0 -0.13 1.38 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='traffic_light_north'>
+      <static>1</static>
+      <pose>2 2.7 0 0 -0 3.1415</pose>
+      <link name='link'>
+        <visual name='pole'>
+          <pose>0 0 0.8 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.04</radius>
+              <length>1.6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <visual name='box'>
+          <pose>0 0 1.6 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.35 0.22 0.75</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.02 0.02 0.02 1</ambient>
+            <diffuse>0.02 0.02 0.02 1</diffuse>
+          </material>
+        </visual>
+        <visual name='red'>
+          <pose>0 -0.13 1.82 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='yellow'>
+          <pose>0 -0.13 1.6 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0.8 0 1</ambient>
+            <diffuse>1 0.8 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='green'>
+          <pose>0 -0.13 1.38 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='traffic_light_east'>
+      <static>1</static>
+      <pose>2.7 -2 0 0 -0 1.5707</pose>
+      <link name='link'>
+        <visual name='pole'>
+          <pose>0 0 0.8 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.04</radius>
+              <length>1.6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <visual name='box'>
+          <pose>0 0 1.6 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.35 0.22 0.75</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.02 0.02 0.02 1</ambient>
+            <diffuse>0.02 0.02 0.02 1</diffuse>
+          </material>
+        </visual>
+        <visual name='red'>
+          <pose>0 -0.13 1.82 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='yellow'>
+          <pose>0 -0.13 1.6 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0.8 0 1</ambient>
+            <diffuse>1 0.8 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='green'>
+          <pose>0 -0.13 1.38 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='traffic_light_west'>
+      <static>1</static>
+      <pose>-2.7 2 0 0 0 -1.5707</pose>
+      <link name='link'>
+        <visual name='pole'>
+          <pose>0 0 0.8 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.04</radius>
+              <length>1.6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <visual name='box'>
+          <pose>0 0 1.6 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.35 0.22 0.75</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.02 0.02 0.02 1</ambient>
+            <diffuse>0.02 0.02 0.02 1</diffuse>
+          </material>
+        </visual>
+        <visual name='red'>
+          <pose>0 -0.13 1.82 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='yellow'>
+          <pose>0 -0.13 1.6 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0.8 0 1</ambient>
+            <diffuse>1 0.8 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='green'>
+          <pose>0 -0.13 1.38 1.5707 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='v2x_rsu_tower'>
+      <static>1</static>
+      <pose>1.8 -3.6 0 0 -0 0</pose>
+      <link name='link'>
+        <visual name='pole'>
+          <pose>0 0 1.3 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.04</radius>
+              <length>2.6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.05 0.05 0.05 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+          </material>
+        </visual>
+        <visual name='antenna'>
+          <pose>0 0 2.7 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.18</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0 0.4 1 1</ambient>
+            <diffuse>0 0.4 1 1</diffuse>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name='v2x_city_world'>
+      <sim_time>828 120000000</sim_time>
+      <real_time>269 821413899</real_time>
+      <wall_time>1782687804 892018686</wall_time>
+      <iterations>268280</iterations>
+      <model name='HospitalBot'>
+        <pose>3.91968 4.49029 -0 0 -0 -0.00248</pose>
+        <scale>1 1 1</scale>
+        <link name='body'>
+          <pose>3.91968 4.49029 -0 0 -0 -0.00248</pose>
+          <velocity>-6e-06 -8e-06 -0 0 -0 -5e-06</velocity>
+          <acceleration>-0.008787 -0.01437 -1.1e-05 0.000106 -0.000166 -0.000166</acceleration>
+          <wrench>-1.49383 -2.44291 -0.001874 0 -0 0</wrench>
+        </link>
+        <link name='suspension_tire_left'>
+          <pose>3.9202 4.70029 0.06135 -0 -0 -0.00248</pose>
+          <velocity>-2e-06 -2e-06 -0.005702 2e-06 -1e-06 -5e-06</velocity>
+          <acceleration>-0.000975 -0.004467 9e-06 0.003824 -0.002573 -0.0008</acceleration>
+          <wrench>-0.000975 -0.004467 9e-06 0 -0 0</wrench>
+        </link>
+        <link name='suspension_tire_right'>
+          <pose>3.91916 4.28029 0.06135 -0 -0 -0.00248</pose>
+          <velocity>-8e-06 -9e-06 -0.005702 2e-06 -1e-06 -5e-06</velocity>
+          <acceleration>-0.010152 -0.016341 -7e-06 0.002879 -0.002445 0.00062</acceleration>
+          <wrench>-0.010152 -0.016341 -7e-06 0 -0 0</wrench>
+        </link>
+        <link name='tire_left'>
+          <pose>3.9202 4.70029 0.06135 -0 0.025677 -0.00248</pose>
+          <velocity>-0 -0 -0.005702 3e-06 -5e-06 -5e-06</velocity>
+          <acceleration>0.002039 -0.000484 9e-06 0.006365 0.034301 -0.000796</acceleration>
+          <wrench>0.010195 -0.002421 4.5e-05 0 -0 0</wrench>
+        </link>
+        <link name='tire_right'>
+          <pose>3.91916 4.28029 0.06135 0 0.008855 -0.00248</pose>
+          <velocity>-2e-06 -0 -0.005702 3e-06 -3.7e-05 -5e-06</velocity>
+          <acceleration>0.002096 -0.000483 -8e-06 0.006299 0.035275 0.000629</acceleration>
+          <wrench>0.010482 -0.002414 -4.2e-05 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='House_2'>
+        <pose>6.62964 -7.66045 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>6.62964 -7.66045 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='House_2_0'>
+        <pose>-8.6676 6.73102 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-8.6676 6.73102 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='House_3'>
+        <pose>-5.99072 -6.52339 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-5.99072 -6.52339 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='commercial_block'>
+        <pose>-6.17553 -7.5559 1 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-6.17553 -7.5559 1 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='commercial_parking_lot'>
+        <pose>-5.31351 -4 0.07 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-5.31351 -4 0.07 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='community_clinic'>
+        <pose>6.34512 9.40188 0 0 0 -1.56653</pose>
+        <scale>1 1 1</scale>
+        <link name='clinic_link'>
+          <pose>6.34512 9.40188 0 0 0 -1.56653</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='crosswalk_south'>
+        <pose>-1.15 -2 0.075 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-1.15 -2 0.075 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='horizontal_lane_marking'>
+        <pose>0 0 0.055 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0.055 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='hospital_access_road'>
+        <pose>6.2 4 0.014 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>6.2 4 0.014 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='hospital_bay_H1'>
+        <pose>5.8 4 0.07 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>5.8 4 0.07 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='hospital_complex'>
+        <pose>6.34604 8.76438 1.13843 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>6.34604 8.76438 1.13843 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='main_horizontal_road'>
+        <pose>-0.011249 0.047151 0.022517 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-0.011249 0.047151 0.022517 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='main_stop_line'>
+        <pose>-2.2 0 0.07 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-2.2 0 0.07 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='main_vertical_road'>
+        <pose>0 0 0.012 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0.012 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='office_access_road'>
+        <pose>6.48916 -4.50995 0.014 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>6.48916 -4.50995 0.014 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='office_parking_zone_O1_O2'>
+        <pose>5.71745 -4.12842 0.00947 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>5.71745 -4.12842 0.00947 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='residential_block'>
+        <pose>-8.3 7.1778 1 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-8.3 7.1778 1 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='sidewalk_east'>
+        <pose>3 0 0.036 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>3 0 0.036 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='sidewalk_north'>
+        <pose>0 3 0.035 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 3 0.035 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='sidewalk_south'>
+        <pose>0.051873 -2.90708 0.035 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.051873 -2.90708 0.035 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='sidewalk_west'>
+        <pose>-3 0 0.026544 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-3 0 0.026544 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='traffic_light_east'>
+        <pose>2.7 -2 0 0 -0 1.5707</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>2.7 -2 0 0 -0 1.5707</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='traffic_light_north'>
+        <pose>2 2.7 0 0 -0 3.1415</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>2 2.7 0 0 -0 3.1415</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='traffic_light_south'>
+        <pose>-2 -2.7 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-2 -2.7 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='traffic_light_west'>
+        <pose>-2.7 2 0 0 0 -1.5707</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-2.7 2 0 0 0 -1.5707</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='v2x_rsu_tower'>
+        <pose>1.8 -3.6 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>1.8 -3.6 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='vertical_lane_marking'>
+        <pose>0 0 0.056 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0.056 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <model name='House_2'>
+      <link name='link'>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <pose>0 0 0 0 -0 0</pose>
+        <gravity>1</gravity>
+        <inertial>
+          <mass>1</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://house_2/meshes/house_2.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://house_2/materials/scripts</uri>
+              <uri>model://house_2/materials/textures</uri>
+              <uri>model://house_1/materials/textures</uri>
+              <name>House_2/Diffuse</name>
+            </script>
+            <shader type='normal_map_tangent_space'>
+              <normal_map>model://house_1/materials/textures/House_1_Normal.png</normal_map>
+            </shader>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+          <pose>0 0 0 0 -0 0</pose>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/ganeshna/.gazebo/models/house_2/meshes/house_2.dae</uri>
+              <scale>1.5 1.5 1.5</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+      <static>1</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose>8.27018 -8.59134 0 0 -0 0</pose>
+    </model>
+    <model name='community_clinic'>
+      <static>1</static>
+      <pose>3.90864 8.23366 0 0 -0 0</pose>
+      <link name='clinic_link'>
+        <visual name='foundation_visual'>
+          <pose>0 0 0.1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>8.6 6.6 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.45 0.43 0.4 1</ambient>
+            <diffuse>0.5 0.48 0.45 1</diffuse>
+            <specular>0.05 0.05 0.05 1</specular>
+          </material>
+        </visual>
+        <collision name='foundation_collision'>
+          <pose>0 0 0.1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>8.6 6.6 0.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='building_visual'>
+          <pose>0 0 1.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>8 6 2.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.88 0.86 0.82 1</ambient>
+            <diffuse>0.9 0.88 0.84 1</diffuse>
+            <specular>0.04 0.04 0.04 1</specular>
+          </material>
+        </visual>
+        <collision name='building_collision'>
+          <pose>0 0 1.2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>8 6 2.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='parapet_front'>
+          <pose>0 3.1 2.45 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>8.2 0.2 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.78 0.74 1</ambient>
+            <diffuse>0.82 0.8 0.76 1</diffuse>
+          </material>
+        </visual>
+        <visual name='parapet_back'>
+          <pose>0 -3.1 2.45 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>8.2 0.2 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.78 0.74 1</ambient>
+            <diffuse>0.82 0.8 0.76 1</diffuse>
+          </material>
+        </visual>
+        <visual name='parapet_left'>
+          <pose>-4.1 0 2.45 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 6.2 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.78 0.74 1</ambient>
+            <diffuse>0.82 0.8 0.76 1</diffuse>
+          </material>
+        </visual>
+        <visual name='parapet_right'>
+          <pose>4.1 0 2.45 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 6.2 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.78 0.74 1</ambient>
+            <diffuse>0.82 0.8 0.76 1</diffuse>
+          </material>
+        </visual>
+        <visual name='roof_slab'>
+          <pose>0 0 2.32 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>8.2 6.2 0.14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.5 0.46 1</ambient>
+            <diffuse>0.54 0.52 0.48 1</diffuse>
+          </material>
+        </visual>
+        <visual name='canopy_slab'>
+          <pose>3.6 0 2.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.2 2.4 0.12</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.75 0.73 0.7 1</ambient>
+            <diffuse>0.77 0.75 0.72 1</diffuse>
+          </material>
+        </visual>
+        <visual name='canopy_pillar_left'>
+          <pose>4.05 0.85 1.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 2.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.82 0.8 0.77 1</ambient>
+            <diffuse>0.84 0.82 0.79 1</diffuse>
+          </material>
+        </visual>
+        <visual name='canopy_pillar_right'>
+          <pose>4.05 -0.85 1.05 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 2.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.82 0.8 0.77 1</ambient>
+            <diffuse>0.84 0.82 0.79 1</diffuse>
+          </material>
+        </visual>
+        <visual name='door_frame'>
+          <pose>4.02 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.06 1.5 2.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2 0.18 0.16 1</ambient>
+            <diffuse>0.22 0.2 0.18 1</diffuse>
+          </material>
+        </visual>
+        <visual name='door_left'>
+          <pose>4.04 0.3 0.95 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.62 1.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.14 0.26 0.2 1</ambient>
+            <diffuse>0.16 0.28 0.22 1</diffuse>
+          </material>
+        </visual>
+        <visual name='door_right'>
+          <pose>4.04 -0.3 0.95 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.62 1.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.14 0.26 0.2 1</ambient>
+            <diffuse>0.16 0.28 0.22 1</diffuse>
+          </material>
+        </visual>
+        <visual name='door_transom'>
+          <pose>4.04 0 1.97 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.04 1.3 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.7 0.75 0.65</ambient>
+            <diffuse>0.55 0.7 0.75 0.65</diffuse>
+          </material>
+        </visual>
+        <visual name='fw1_glass'>
+          <pose>4.02 2.1 1.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.04 1.3 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.6 0.72 0.55</ambient>
+            <diffuse>0.42 0.6 0.72 0.55</diffuse>
+          </material>
+        </visual>
+        <visual name='fw1_frame_top'>
+          <pose>4.04 2.1 1.86 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 1.36 0.06</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.92 0.92 0.9 1</ambient>
+            <diffuse>0.94 0.94 0.92 1</diffuse>
+          </material>
+        </visual>
+        <visual name='fw1_frame_bot'>
+          <pose>4.04 2.1 0.76 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 1.36 0.06</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.92 0.92 0.9 1</ambient>
+            <diffuse>0.94 0.94 0.92 1</diffuse>
+          </material>
+        </visual>
+        <visual name='fw1_sill'>
+          <pose>4.06 2.1 0.71 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.12 1.5 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.78 0.75 1</ambient>
+            <diffuse>0.82 0.8 0.77 1</diffuse>
+          </material>
+        </visual>
+        <visual name='fw2_glass'>
+          <pose>4.02 -2.1 1.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.04 1.3 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.6 0.72 0.55</ambient>
+            <diffuse>0.42 0.6 0.72 0.55</diffuse>
+          </material>
+        </visual>
+        <visual name='fw2_frame_top'>
+          <pose>4.04 -2.1 1.86 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 1.36 0.06</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.92 0.92 0.9 1</ambient>
+            <diffuse>0.94 0.94 0.92 1</diffuse>
+          </material>
+        </visual>
+        <visual name='fw2_frame_bot'>
+          <pose>4.04 -2.1 0.76 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 1.36 0.06</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.92 0.92 0.9 1</ambient>
+            <diffuse>0.94 0.94 0.92 1</diffuse>
+          </material>
+        </visual>
+        <visual name='fw2_sill'>
+          <pose>4.06 -2.1 0.71 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.12 1.5 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.78 0.75 1</ambient>
+            <diffuse>0.82 0.8 0.77 1</diffuse>
+          </material>
+        </visual>
+        <visual name='bw1_glass'>
+          <pose>1.5 -3.03 1.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.3 0.04 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.6 0.72 0.55</ambient>
+            <diffuse>0.42 0.6 0.72 0.55</diffuse>
+          </material>
+        </visual>
+        <visual name='bw1_sill'>
+          <pose>1.5 -3.06 0.71 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 0.12 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.78 0.75 1</ambient>
+            <diffuse>0.82 0.8 0.77 1</diffuse>
+          </material>
+        </visual>
+        <visual name='lw1_glass'>
+          <pose>-4.03 0 1.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.04 1.3 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.6 0.72 0.55</ambient>
+            <diffuse>0.42 0.6 0.72 0.55</diffuse>
+          </material>
+        </visual>
+        <visual name='lw1_sill'>
+          <pose>-4.06 0 0.71 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.12 1.5 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.78 0.75 1</ambient>
+            <diffuse>0.82 0.8 0.77 1</diffuse>
+          </material>
+        </visual>
+        <visual name='sign_bracket'>
+          <pose>4.05 0 2.1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.06 3.8 0.55</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3 0.32 0.34 1</ambient>
+            <diffuse>0.32 0.34 0.36 1</diffuse>
+          </material>
+        </visual>
+        <visual name='sign_face'>
+          <pose>4.08 0 2.1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.04 3.6 0.45</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.18 0.45 0.65 1</ambient>
+            <diffuse>0.2 0.48 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name='cross_h'>
+          <pose>4.1 1.4 2.1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.36 0.12</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.85 0.1 0.1 1</ambient>
+            <diffuse>0.88 0.12 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name='cross_v'>
+          <pose>4.1 1.4 2.1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.12 0.36</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.85 0.1 0.1 1</ambient>
+            <diffuse>0.88 0.12 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name='hvac_body'>
+          <pose>-2.5 -1.5 2.55 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.2 0.8 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.48 0.48 1</ambient>
+            <diffuse>0.52 0.52 0.52 1</diffuse>
+          </material>
+        </visual>
+        <inertial>
+          <mass>5000</mass>
+          <inertia>
+            <ixx>1000</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1000</iyy>
+            <iyz>0</iyz>
+            <izz>1000</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='HospitalBot'>
+      <link name='body'>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0.693 0 -0 0</pose>
+          <mass>170</mass>
+          <inertia>
+            <ixx>34.6605</ixx>
+            <iyy>32.8369</iyy>
+            <izz>13.0691</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0.7 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.7 0.7 1.4</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <torsional>
+                <coefficient>0</coefficient>
+                <ode/>
+              </torsional>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <bullet>
+                <friction>0</friction>
+                <friction2>0</friction2>
+                <rolling_friction>0</rolling_friction>
+              </bullet>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/openrobotics/models/hospitalbot/2/files/meshes/HospitalBot.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='front_wheel_left'>
+          <pose>0.17 -0.21 0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/openrobotics/models/hospitalbot/2/files/meshes/SmallWheel.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='back_wheel_left'>
+          <pose>-0.24 -0.21 0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/openrobotics/models/hospitalbot/2/files/meshes/SmallWheel.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='front_wheel_right'>
+          <pose>0.17 0.21 0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/openrobotics/models/hospitalbot/2/files/meshes/SmallWheel.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='back_wheel_right'>
+          <pose>-0.24 0.21 0.03 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/openrobotics/models/hospitalbot/2/files/meshes/SmallWheel.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='suspension_tire_left'>
+        <pose>0 0.21 0.06 0 -0 0</pose>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <iyy>1</iyy>
+            <izz>1</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint_suspension_tire_left' type='prismatic'>
+        <parent>body</parent>
+        <child>suspension_tire_left</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <dynamics>
+            <damping>500</damping>
+            <spring_reference>-0.05</spring_reference>
+            <spring_stiffness>2000</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='tire_left'>
+        <pose>0 0.21 0.06 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>5</mass>
+          <inertia>
+            <ixx>0.757897</ixx>
+            <iyy>1.30298</iyy>
+            <izz>0.757897</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name='fat_wheel_left'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/openrobotics/models/hospitalbot/2/files/meshes/FatWheel.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='tire_left'>
+          <geometry>
+            <sphere>
+              <radius>0.06137</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+07</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint_tire_left' type='revolute'>
+        <parent>suspension_tire_left</parent>
+        <child>tire_left</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='suspension_tire_right'>
+        <pose>0 -0.21 0.06 0 -0 0</pose>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <iyy>1</iyy>
+            <izz>1</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint_suspension_tire_right' type='prismatic'>
+        <parent>body</parent>
+        <child>suspension_tire_right</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <dynamics>
+            <damping>500</damping>
+            <spring_reference>-0.05</spring_reference>
+            <spring_stiffness>2000</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='tire_right'>
+        <pose>0 -0.21 0.06 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>5</mass>
+          <inertia>
+            <ixx>0.757897</ixx>
+            <iyy>1.30298</iyy>
+            <izz>0.757897</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name='fat_wheel_right'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/openrobotics/models/hospitalbot/2/files/meshes/FatWheel.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='tire_right'>
+          <geometry>
+            <sphere>
+              <radius>0.06137</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+07</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint_tire_right' type='revolute'>
+        <parent>suspension_tire_right</parent>
+        <child>tire_right</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <pose>3.91861 4.49029 0 0 -0 0</pose>
+    </model>
+    <model name='House_3'>
+      <link name='link'>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <pose>0 0 0 0 -0 0</pose>
+        <gravity>1</gravity>
+        <inertial>
+          <mass>1</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://house_3/meshes/house_3.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://house_3/materials/scripts</uri>
+              <uri>model://house_3/materials/textures</uri>
+              <uri>model://house_1/materials/textures</uri>
+              <name>House_3/Diffuse</name>
+            </script>
+            <shader type='normal_map_tangent_space'>
+              <normal_map>model://house_1/materials/textures/House_1_Normal.png</normal_map>
+            </shader>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+          <pose>0 0 0 0 -0 0</pose>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/ganeshna/.gazebo/models/house_3/meshes/house_3.dae</uri>
+              <scale>1.5 1.5 1.5</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+      <static>1</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose>-7.22236 -7.21418 0 0 -0 0</pose>
+    </model>
+    <model name='House_2_0'>
+      <link name='link'>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <pose>0 0 0 0 -0 0</pose>
+        <gravity>1</gravity>
+        <inertial>
+          <mass>1</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://house_2/meshes/house_2.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://house_2/materials/scripts</uri>
+              <uri>model://house_2/materials/textures</uri>
+              <uri>model://house_1/materials/textures</uri>
+              <name>House_2/Diffuse</name>
+            </script>
+            <shader type='normal_map_tangent_space'>
+              <normal_map>model://house_1/materials/textures/House_1_Normal.png</normal_map>
+            </shader>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+          <pose>0 0 0 0 -0 0</pose>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/ganeshna/.gazebo/models/house_2/meshes/house_2.dae</uri>
+              <scale>1.5 1.5 1.5</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+      <static>1</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose>-7.9078 6.702 0 0 -0 0</pose>
+    </model>
+  </world>
+</sdf>

@@ -1,0 +1,45 @@
+# ROS 2 Build Artifacts
+build/
+install/
+log/
+colcon.meta
+
+# Python Bytecode & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+*.egg-info/
+dist/
+eggs/
+.eggs/
+
+# ROS Logs & Gazebo runtime caches
+.ros/
+.gazebo/
+*.log
+
+# Submission archives & backups
+*.zip
+*.tar.gz
+*.pptx
+final_submission/
+backup_*/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Backup & Patch Artifacts
+upgrade_backups/
+*.csv
+Screenshot*.png
+*_patch.sh
