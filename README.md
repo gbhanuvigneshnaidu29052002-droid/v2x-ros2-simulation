@@ -6,6 +6,9 @@
 [![Platform](https://img.shields.io/badge/Platform-Ubuntu_22.04_LTS-purple.svg?logo=ubuntu)](https://ubuntu.com/)
 [![TurtleBot3](https://img.shields.io/badge/Robots-TurtleBot3_Burger-yellow.svg)](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
 [![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
 
 A robust **Vehicle-to-Everything (V2X)** multi-robot simulation environment implemented in **ROS 2 Humble** and **Gazebo 11**. The system features **Vehicle-to-Infrastructure (V2I)** and **Vehicle-to-Vehicle (V2V)** communication protocols, coordinated traffic light intersections, dynamic emergency vehicle corridor clearance, intelligent vacancy-based parking allocation, and a real-time terminal perception dashboard.
 
@@ -247,6 +250,15 @@ chmod +x demo_terminals.sh
         ├── package.xml
         └── setup.py
 ```
+
+---
+
+## 🤝 Contributing & Community
+
+Contributions, bug reports, and feature requests are welcome!
+- Check out the [Contributing Guidelines](CONTRIBUTING.md) to get started.
+- Adhere to the [Code of Conduct](CODE_OF_CONDUCT.md).
+- Disclose security concerns responsibly via the [Security Policy](SECURITY.md).
 
 ---
 

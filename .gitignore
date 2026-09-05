@@ -43,3 +43,11 @@ upgrade_backups/
 *.csv
 Screenshot*.png
 *_patch.sh
+
+# Secrets & Credentials
+.env*
+*.key
+*.pem
+*.token
+credentials.json
+
